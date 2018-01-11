@@ -1,14 +1,15 @@
 @import '../pui-variables';
-@import '../bootstrap/mixins';
+@import '../mixins';
 
 .alert {
   border: none !important;
-  margin: 0;
+  margin: 0 !important;
   padding: 8px !important;
 
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  text-align: left;
 
   a.alert-link {
     color: inherit;
@@ -60,7 +61,6 @@
   color: darken($alert-warning-text, 10%);
 }
 
-//Bootstrap
 .alert-danger {
   @include alert-variant($alert-danger-bg, $alert-danger-border, $alert-danger-text);
 }
@@ -72,4 +72,20 @@
   .alert-link:hover {
     color: darken($alert-danger-text, 10%);
   }
+}
+
+.alert-success {
+  @include alert-variant($alert-success-bg, $alert-success-border, $alert-success-text);
+}
+
+.alert-info {
+  @include alert-variant($alert-info-bg, $alert-info-border, $alert-info-text);
+}
+
+.alert-warning {
+  @include alert-variant($alert-warning-bg, $alert-warning-border, $alert-warning-text);
+}
+
+.alert-danger {
+  @include alert-variant($alert-danger-bg, $alert-danger-border, $alert-danger-text);
 }

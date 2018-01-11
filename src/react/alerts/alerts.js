@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {mergeProps} from '../helpers';
 import {Icon} from '../iconography';
+import {Grid, FlexCol} from "../flex-grids";
 
 class Alert extends React.PureComponent {
   static propTypes = {
@@ -46,27 +47,27 @@ class Alert extends React.PureComponent {
 
     let iconColumn;
     if (withIcon) {
-      iconColumn = <div className="col col-fixed pan mtm"><Icon src={alertIcon}/></div>;
+      iconColumn = <FlexCol fixed className="pan mtm"><Icon src={alertIcon}/></FlexCol>;
     }
 
     let dismissableColumn;
     if (dismissable) {
       dismissableColumn = (
-        <div className="col col-fixed pan">
+        <FlexCol fixed className="pan">
           <button type="button" className="btn close" aria-label={closeLabel} onClick={this.handleAlertDismiss}><Icon
             src="close"/>
           </button>
-        </div>
+        </FlexCol>
       );
     }
 
     return (
       <div {...props}>
-        <div className="grid">
+        <Grid>
           {iconColumn}
-          <div className="col col-middle">{children}</div>
+          <FlexCol alignment="middle">{children}</FlexCol>
           {dismissableColumn}
-        </div>
+        </Grid>
       </div>
     );
   }
